@@ -1,11 +1,19 @@
+import Header from './components/header/Header'
+
+
+
 
 
 import React from 'react'
 
-function App() {
+
+  
+    const App = () => {
   return (
-    <div>App</div>
+    <><Header />
+     </>
   )
 }
+
 
 export default App
