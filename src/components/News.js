@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import NewsArticleSite from "./NewsArticleSite";
+import Card from "./Card";
 import { fetchNews } from "../assets/js/common";
 
 function News(props) {
@@ -21,7 +21,7 @@ function News(props) {
       <div className="all__news">
         {news
           ? news?.map((articles) => (
-              <NewsArticleSite data={articles} key={articles.url} />
+              <Card data={articles} key={articles.url} />
             ))
           : "Loading"}
       </div>
