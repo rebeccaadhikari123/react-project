@@ -60,7 +60,7 @@ function Header() {
              
             />
              
-            <Button a href=" #category" variant="outline-success">
+            <Button href=" #category" variant="outline-success">
               Search
               
             </Button>
