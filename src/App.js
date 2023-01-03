@@ -1,9 +1,12 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './components/Header'
+ 
+
 import './index.js'
 
 // import { SearchConsoleprovider } from "./command";
 import News from "./components/News";
+
 
 
 function App() {
@@ -12,6 +15,9 @@ function App() {
       <Header />
       {/* <SearchConsoleprovider /> */}
       <News />
+      
+      
+    
       
     </div>
   );

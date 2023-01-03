@@ -41,6 +41,7 @@ import image35 from '../assets/images/Image35.jpg'
 
 
 function Card({ data }) {
+  // console.log("data", data)
   return (
     <div className="row">
       <div className="col-sm-3">
