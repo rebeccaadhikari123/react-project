@@ -5,9 +5,33 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import image from '../assets/images/news.png'
+import React, { useState } from "react";
 
 
 function Header() {
+  const [inputQuery, setInputQuery] = useState("");
+
+  const searchQuery = (e) => {
+    const value = e.target.value;
+    setInputQuery(value);
+  };
+
+  const handleSearchUser = (e) => {
+    e.preventDefault();
+    console.log(inputQuery);
+
+    const api = `https://newsapi.org/v2/everything?q=${inputQuery}&apiKey=17e3958800ec4c7e913cc29b812579d4`;
+    
+
+    const fetchApi = async () => {
+      const response = await fetch(api);
+      const data = await response.json();
+      console.log(data);
+    };
+    fetchApi();
+  }
+    
+
   return (
     <Navbar bg="light" expand="lg">
       <Container fluid>
@@ -52,20 +76,22 @@ function Header() {
           </Nav>
           <Form className="d-flex">
             <Form.Control
-              type="search"
-              placeholder="Search"
-              className="me-2"
-              aria-label="Search"
-              aria-describedby="basic-addon1"
-             
+             placeholder="Search"
+             className="me-2"
+             aria-label="Search"
+             aria-describedby="basic-addon1"
+             value={inputQuery}
+          onChange={searchQuery}
             />
              
-            <Button a href=" #category" variant="outline-success">
+            <Button onClick = {handleSearchUser}  variant="outline-success">
               Search
               
             </Button>
             
           </Form>
+         
+   
         </Navbar.Collapse>
       </Container>
     </Navbar>

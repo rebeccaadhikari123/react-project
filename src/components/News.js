@@ -1,18 +1,27 @@
-import React, { useContext } from "react";
-import { command } from "../command";
-import NewsArticleSite from "./NewsArticleSite";
+import React, { useEffect, useState } from "react";
+import Card from "./Card";
+import { fetchNews } from "../assets/js/common";
 
 function News(props) {
-  const { data } = useContext(command);
-  console.log(data);
+  const [news, setNews] = useState([])
+
+  useEffect(() => {
+    async function loadNews() {
+      const response = await fetchNews();
+      setNews(response.data.articles);
+    }
+
+    loadNews();
+  }, [])
+
+  console.log(news)
 
   return (
     <div>
-      <h1 className="head__text">News App </h1>
       <div className="all__news">
-        {data
-          ? data.articles.map((news) => (
-              <NewsArticleSite data={news} key={news.url} />
+        {news
+          ? news?.map((articles) => (
+              <Card data={articles} key={articles.url} />
             ))
           : "Loading"}
       </div>
