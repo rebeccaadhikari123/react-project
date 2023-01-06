@@ -3,12 +3,12 @@ import NewsCard from "./Card";
 import { fetchNews } from "../assets/js/common";
 
 function News(props) {
-  const[search, setSearch] = useState([props.searchTerm]);
+  const[search, setSearch] = useState(props.searchTerm);
   const [news, setNews] = useState([]);
 
  
     async function loadNews() {
-      const response = await fetchNews();
+      const response = await fetchNews(props.searchTerm);
       setNews(response.data.articles);
     }
 
@@ -16,7 +16,7 @@ function News(props) {
     loadNews();
   }, [])
   if (search !== props.searchTerm){
-    setSearch(props.searchTerm0)
+    setSearch(props.searchTerm)
     setNews([]);
     loadNews();
   }

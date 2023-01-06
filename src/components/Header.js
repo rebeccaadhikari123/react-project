@@ -8,7 +8,7 @@ import image from '../assets/images/news.png'
 import React, { useState } from "react";
 
 
-function Header() {
+function Header(props) {
   const [inputQuery, setInputQuery] = useState("");
 
   const searchQuery = (e) => {
@@ -19,7 +19,9 @@ function Header() {
 
   const handleSearchUser = (e) => {
     e.preventDefault();
-    this.props.searchNews(inputQuery);
+    props.searchNews(inputQuery);
+    
+   
   
   //   console.log(inputQuery);
 
@@ -38,7 +40,7 @@ function Header() {
   return (
     <Navbar bg="light" expand="lg">
       <Container fluid>
-        <Navbar.Brand href="#home">
+        <Navbar.Brand >
           <img
             alt="/news.png"
             src={image}
@@ -57,27 +59,30 @@ function Header() {
             style={{ maxHeight: '100px' }}
             navbarScroll
           >
-            <Nav.Link href="#action1">Home</Nav.Link>
+            <Nav.Link href="Home">Home</Nav.Link>
            
             <NavDropdown title="Category" id="navbarScrollingDropdown">
-              <NavDropdown.Item href="#animals">Animals</NavDropdown.Item>
+              <NavDropdown.Item onClick={() => props.searchNews('Animals')} >Animals </NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#birds">
-                Birds
+              <NavDropdown.Item onClick={() => props.searchNews('Robot')} >Robot </NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item onClick={() => props.searchNews('Birds')}>
+     
+                Birds 
+              </NavDropdown.Item >
+              <NavDropdown.Divider />
+              <NavDropdown.Item onClick={() => props.searchNews('Novel')}>
+                Novel
               </NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#Books">
-                Books
-              </NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#Weather">
+              <NavDropdown.Item onClick={() => props.searchNews('Weather')}>
                 Weather
               </NavDropdown.Item>
              
             </NavDropdown>
             
           </Nav>
-          <Form className="d-flex" onSubmit={(e) => e.preventDefault()}>
+          <Form className="d-flex" onSubmit={(e) => handleSearchUser(e)}>
             <Form.Control
              placeholder="Search"
              className="me-2"
