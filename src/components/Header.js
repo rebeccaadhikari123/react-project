@@ -12,25 +12,28 @@ function Header() {
   const [inputQuery, setInputQuery] = useState("");
 
   const searchQuery = (e) => {
+    e.preventDefault();
     const value = e.target.value;
     setInputQuery(value);
   };
 
   const handleSearchUser = (e) => {
     e.preventDefault();
-    console.log(inputQuery);
+    this.props.searchNews(inputQuery);
+  
+  //   console.log(inputQuery);
 
-    const api = `https://newsapi.org/v2/everything?q=${inputQuery}&apiKey=17e3958800ec4c7e913cc29b812579d4`;
+  //   const api = `https://newsapi.org/v2/everything?q=${inputQuery}&apiKey=17e3958800ec4c7e913cc29b812579d4`;
     
 
-    const fetchApi = async () => {
-      const response = await fetch(api);
-      const data = await response.json();
-      console.log(data);
-    };
-    fetchApi();
-  }
-    
+  //   const fetchApi = async () => {
+  //     const response = await fetch(api);
+  //     const data = await response.json();
+  //     console.log(data);
+  //   };
+  //   fetchApi();
+   };
+  
 
   return (
     <Navbar bg="light" expand="lg">
@@ -74,14 +77,15 @@ function Header() {
             </NavDropdown>
             
           </Nav>
-          <Form className="d-flex">
+          <Form className="d-flex" onSubmit={(e) => e.preventDefault()}>
             <Form.Control
              placeholder="Search"
              className="me-2"
              aria-label="Search"
              aria-describedby="basic-addon1"
              value={inputQuery}
-          onChange={searchQuery}
+             onChange={searchQuery}
+             
             />
              
             <Button onClick = {handleSearchUser}  variant="outline-success">
@@ -96,6 +100,7 @@ function Header() {
       </Container>
     </Navbar>
   );
-}
+
+  }
 
 export default Header;

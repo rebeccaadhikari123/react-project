@@ -1,31 +1,39 @@
 import React, { useEffect, useState } from "react";
-import Card from "./Card";
+import NewsCard from "./Card";
 import { fetchNews } from "../assets/js/common";
 
 function News(props) {
-  const [news, setNews] = useState([])
+  const[search, setSearch] = useState([props.searchTerm]);
+  const [news, setNews] = useState([]);
 
-  useEffect(() => {
+ 
     async function loadNews() {
       const response = await fetchNews();
       setNews(response.data.articles);
     }
 
+    useEffect(() => {
     loadNews();
   }, [])
+  if (search !== props.searchTerm){
+    setSearch(props.searchTerm0)
+    setNews([]);
+    loadNews();
+  }
 
-  console.log(news)
+  // console.log(news)
 
   return (
-    <div>
-      <div className="all__news">
-        {news
+    <>
+     {news
           ? news?.map((articles) => (
-              <Card data={articles} key={articles.url} />
+              <NewsCard data={articles} key={articles.url} />
             ))
           : "Loading"}
-      </div>
-    </div>
+    </>
+       
+      
+   
   );
 }
 
