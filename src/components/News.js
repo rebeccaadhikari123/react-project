@@ -13,6 +13,7 @@ function News(props) {
     }
 
     useEffect(() => {
+      
     loadNews();
   }, [])
   if (search !== props.searchTerm){
@@ -28,7 +29,7 @@ function News(props) {
      {news
           ? news?.map((articles) => (
               <NewsCard data={articles} key={articles.url} />
-            ))
+              ))
           : "Loading"}
     </>
        

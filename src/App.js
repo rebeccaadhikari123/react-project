@@ -14,7 +14,6 @@ import './index.js'
 import News from "./components/News";
 
 
-
 function App() {
   const [searchTerm, setSearchterm] = useState('');
 
@@ -22,6 +21,7 @@ function App() {
     <div className='App'>
       <Header searchNews={(search) => setSearchterm(search) } />
       {/* <SearchConsoleprovider /> */}
+      
       <Container fluid>
         <Row className='justify-content-md-center'>
           <News searchTerm={searchTerm} />

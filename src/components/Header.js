@@ -8,6 +8,8 @@ import image from '../assets/images/news.png'
 import React, { useState } from "react";
 
 
+
+
 function Header(props) {
   const [inputQuery, setInputQuery] = useState("");
 
@@ -83,15 +85,17 @@ function Header(props) {
             
           </Nav>
           <Form className="d-flex" onSubmit={(e) => handleSearchUser(e)}>
+            
             <Form.Control
              placeholder="Search"
-             className="me-2"
+             className="me-2 w-100"
              aria-label="Search"
              aria-describedby="basic-addon1"
              value={inputQuery}
              onChange={searchQuery}
              
             />
+           
              
             <Button onClick = {handleSearchUser}  variant="outline-success">
               Search
