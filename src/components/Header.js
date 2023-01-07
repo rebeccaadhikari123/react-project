@@ -94,10 +94,12 @@ function Header(props) {
              value={inputQuery}
              onChange={searchQuery}
              
+            
+             
             />
            
              
-            <Button onClick = {handleSearchUser}  variant="outline-success">
+            <Button   onClick = {handleSearchUser}  variant="outline-success">
               Search
               
             </Button>
