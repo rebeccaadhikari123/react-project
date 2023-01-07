@@ -50,7 +50,7 @@ function Header(props) {
             height="30"
             className="d-inline-block align-top"
           />{' '}
-         News App
+         NewsApp
         </Navbar.Brand>
        
        
@@ -63,7 +63,7 @@ function Header(props) {
           >
             <Nav.Link href="Home">Home</Nav.Link>
            
-            <NavDropdown title="Category" id="navbarScrollingDropdown">
+            <NavDropdown title="Category" id="navbarScrollingDropdown" variant="outline-dark" >
               <NavDropdown.Item onClick={() => props.searchNews('Animals')} >Animals </NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item onClick={() => props.searchNews('Robot')} >Robot </NavDropdown.Item>
@@ -85,29 +85,18 @@ function Header(props) {
             
           </Nav>
           <Form className="d-flex" onSubmit={(e) => handleSearchUser(e)}>
-            
             <Form.Control
              placeholder="Search"
-             className="me-2 w-100"
+             className="me-2 w-700"
              aria-label="Search"
              aria-describedby="basic-addon1"
              value={inputQuery}
              onChange={searchQuery}
-             
-            
-             
             />
-           
-             
-            <Button   onClick = {handleSearchUser}  variant="outline-success">
-              Search
-              
-            </Button>
+           <Button   onClick = {handleSearchUser}  variant="outline-primary "> Search</Button>
+            </Form>
             
-          </Form>
-         
-   
-        </Navbar.Collapse>
+         </Navbar.Collapse>
       </Container>
     </Navbar>
   );

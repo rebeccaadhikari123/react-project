@@ -11,19 +11,18 @@ function NewsCard({ data })
    
     <Card style={{ width: '20rem',margin: '1.2rem'}}>
       <Card.Img variant="top" src={data.urlToImage} />
-      <div class="Card bg-white">
+      <div className="alert alert-dark" role="alert">
       <Card.Body>
         <Card.Title>{data.title}</Card.Title>
         <Card.Text>
          {data.description}
         </Card.Text>
-        <Button  className="btn-dark"  >{data.source.name}</Button> 
-         {/* <a href="data.url" className="btn btn-success">{data.source.name}</a> */}
+        <Button  className="alert alert-warning" role="alert" >{data.source.name}</Button> 
+         {/* <a href="data.url" className="btn btn-success">{data.url}</a> */}
       </Card.Body>
+     
       </div>
       </Card>
-    
-   
   );
   }
 
