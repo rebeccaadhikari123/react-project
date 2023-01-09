@@ -93,7 +93,7 @@ function Header(props) {
              value={inputQuery}
              onChange={searchQuery}
             />
-           <Button   onClick = {handleSearchUser}  variant="outline-primary "> Search</Button>
+           <Button   onClick = {handleSearchUser} variant="outline-secondary"> Search</Button>
             </Form>
             
          </Navbar.Collapse>
