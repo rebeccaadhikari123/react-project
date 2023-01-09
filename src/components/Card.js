@@ -17,7 +17,7 @@ function NewsCard({ data })
         <Card.Text>
          {data.description}
         </Card.Text>
-        <Button a href={data.url} variant="light">{data.source.name}  </Button> 
+        <Button a href={data.url} variant="light" target=" ">{data.source.name}  </Button> 
          {/*<a href="data.url" className="btn btn-success">{data.url}</a> */}
       </Card.Body>
      
